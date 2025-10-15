@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Registration</title>
+  
+</head>
+<body>
+  <h1>Course Registration</h1>
+
+  <form>
+    <fieldset>
+      <legend>Student Information</legend>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" title="Enter your full name">
+      <br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" title="Enter your email address">
+    </fieldset>
+
+    <fieldset>
+      <legend>Course Selection</legend>
+      <label for="course">Choose a course:</label>
+      <select id="course" name="course">
+        <option value="html">HTML Basics</option>
+        <option value="css">CSS Fundamentals</option>
+        <option value="js">Intro to JavaScript</option>
+      </select>
+    </fieldset>
+  </form>
+
+  <h2>Available Schedules</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Time</th>
+        <th>Instructor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Monday</td>
+        <td>10:00 - 12:00</td>
+        <td>Ms. A</td>
+      </tr>
+      <tr>
+        <td>Wednesday</td>
+        <td>14:00 - 16:00</td>
+        <td>Mr. B</td>
+      </tr>
+      <tr>
+        <td>Saturday</td>
+        <td>09:00 - 11:00</td>
+        <td>Ms. C</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
