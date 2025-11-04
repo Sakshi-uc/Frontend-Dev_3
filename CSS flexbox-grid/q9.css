@@ -1,0 +1,8 @@
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f2f2f2;font-family:Arial}
+.wrap{perspective:1000px}
+.card{width:280px;height:360px;position:relative;transform-style:preserve-3d;transition:transform .8s}
+.card:hover{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;padding:1rem}
+.front img{max-width:90%;height:auto;border-radius:6px}
+.back{transform:rotateY(180deg);padding:1.5rem;text-align:center}
