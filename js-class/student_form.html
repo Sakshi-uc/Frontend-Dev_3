@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    input.valid {
+      border-color: green;
+    }
+    input.invalid {
+      border-color: red;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h2>Student Registration Form</h2>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <div class="error" id="nameError">Name must contain only alphabets</div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" id="email" placeholder="example@domain.com">
+    <div class="error" id="emailError">Invalid email format</div>
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="text" id="phone" placeholder="Enter 10 digits">
+    <div class="error" id="phoneError">Phone must be exactly 10 digits</div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter password">
+    <div class="error" id="passwordError">Password must contain 1 uppercase, 1 number, and 1 special character</div>
+  </div>
+
+  <button onclick="validateForm()">Submit</button>
+
+  <script>
+    const nameRegex = /^[A-Za-z\s]+$/;
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const phoneRegex = /^\d{10}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+
+    function validateField(inputId, regex, errorId) {
+      const input = document.getElementById(inputId);
+      const error = document.getElementById(errorId);
+      const value = input.value.trim();
+
+      if (regex.test(value)) {
+        input.classList.remove('invalid');
+        input.classList.add('valid');
+        error.style.display = 'none';
+        return true;
+      } else {
+        input.classList.remove('valid');
+        input.classList.add('invalid');
+        error.style.display = 'block';
+        return false;
+      }
+    }
+
+    document.getElementById('name').addEventListener('input', function() {
+      validateField('name', nameRegex, 'nameError');
+    });
+
+    document.getElementById('email').addEventListener('input', function() {
+      validateField('email', emailRegex, 'emailError');
+    });
+
+    document.getElementById('phone').addEventListener('input', function() {
+      validateField('phone', phoneRegex, 'phoneError');
+    });
+
+    document.getElementById('password').addEventListener('input', function() {
+      validateField('password', passwordRegex, 'passwordError');
+    });
+
+    function validateForm() {
+      const nameValid = validateField('name', nameRegex, 'nameError');
+      const emailValid = validateField('email', emailRegex, 'emailError');
+      const phoneValid = validateField('phone', phoneRegex, 'phoneError');
+      const passwordValid = validateField('password', passwordRegex, 'passwordError');
+
+      if (nameValid && emailValid && phoneValid && passwordValid) {
+        alert('Form submitted successfully!');
+      } else {
+        alert('Please fix all errors before submitting');
+      }
+    }
+  </script>
+</body>
+</html>

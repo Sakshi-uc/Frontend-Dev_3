@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    h2 {
+      text-align: center;
+      color: #667eea;
+      margin-bottom: 30px;
+    }
+    .add-item-section {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    input {
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    button {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    .cart-items {
+      margin-bottom: 20px;
+    }
+    .cart-item {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .item-details {
+      flex: 1;
+    }
+    .item-details h4 {
+      margin: 0 0 5px 0;
+      color: #333;
+    }
+    .item-details p {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+    }
+    .item-total {
+      font-weight: bold;
+      color: #667eea;
+      font-size: 18px;
+    }
+    .coupon-section {
+      background: #fff3cd;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .coupon-section input {
+      flex: 1;
+    }
+    .total-section {
+      background: #e8f5e9;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid #4caf50;
+    }
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .total-row.final {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2e7d32;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 2px solid #4caf50;
+    }
+    .discount-row {
+      color: #f44336;
+    }
+    .empty-cart {
+      text-align: center;
+      padding: 40px;
+      color: #999;
+    }
+    .message {
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .message.success {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    .message.error {
+      background: #ffebee;
+      color: #c62828;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🛒 Shopping Cart</h2>
+    
+    <div class="add-item-section">
+      <h3>Add Item to Cart</h3>
+      <div class="form-row">
+        <input type="text" id="itemName" placeholder="Item name">
+        <input type="number" id="itemPrice" placeholder="Price" min="0">
+        <input type="number" id="itemQuantity" placeholder="Quantity" min="1" value="1">
+      </div>
+      <button onclick="addItem()">Add to Cart</button>
+    </div>
+
+    <div id="message"></div>
+
+    <div class="cart-items" id="cartItems">
+      <div class="empty-cart">Your cart is empty</div>
+    </div>
+
+    <div class="coupon-section">
+      <input type="text" id="couponCode" placeholder="Enter coupon code (SAVE20 or DISC10)">
+      <button onclick="applyCoupon()">Apply Coupon</button>
+    </div>
+
+    <div class="total-section" id="totalSection" style="display: none;">
+      <div class="total-row">
+        <span>Subtotal:</span>
+        <span id="subtotal">₹0</span>
+      </div>
+      <div class="total-row discount-row" id="discountRow" style="display: none;">
+        <span>Discount:</span>
+        <span id="discount">-₹0</span>
+      </div>
+      <div class="total-row final">
+        <span>Total:</span>
+        <span id="total">₹0</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    class Cart {
+      constructor() {
+        this.items = [];
+        this.couponApplied = null;
+      }
+
+      addItem(name, price, quantity) {
+        this.items.push({
+          name: name,
+          price: parseFloat(price),
+          quantity: parseInt(quantity)
+        });
+        this.displayCart();
+      }
+
+      getTotal() {
+        return this.items.reduce((total, item) => {
+          return total + (item.price * item.quantity);
+        }, 0);
+      }
+
+      applyCoupon(code) {
+        const validCoupons = {
+          'SAVE20': 20,
+          'DISC10': 10
+        };
+
+        const couponRegex = /^(SAVE20|DISC10)$/;
+
+        if (couponRegex.test(code)) {
+          this.couponApplied = {
+            code: code,
+            discount: validCoupons[code]
+          };
+          return true;
+        }
+        return false;
+      }
+
+      getFinalTotal() {
+        const subtotal = this.getTotal();
+        if (this.couponApplied) {
+          const discountAmount = (subtotal * this.couponApplied.discount) / 100;
+          return subtotal - discountAmount;
+        }
+        return subtotal;
+      }
+
+      getDiscountAmount() {
+        if (this.couponApplied) {
+          const subtotal = this.getTotal();
+          return (subtotal * this.couponApplied.discount) / 100;
+        }
+        return 0;
+      }
+
+      displayCart() {
+        const cartDiv = document.getElementById('cartItems');
+        const totalSection = document.getElementById('totalSection');
+
+        if (this.items.length === 0) {
+          cartDiv.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
+          totalSection.style.display = 'none';
+          return;
+        }
+
+        totalSection.style.display = 'block';
+
+        let cartHTML = '';
+        this.items.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          cartHTML += `
+            <div class="cart-item">
+              <div class="item-details">
+                <h4>${item.name}</h4>
+                <p>₹${item.price} × ${item.quantity}</p>
+              </div>
+              <div class="item-total">₹${itemTotal}</div>
+            </div>
+          `;
+        });
+
+        cartDiv.innerHTML = cartHTML;
+
+        const subtotal = this.getTotal();
+        const discountAmount = this.getDiscountAmount();
+        const finalTotal = this.getFinalTotal();
+
+        document.getElementById('subtotal').textContent = `₹${subtotal}`;
+        document.getElementById('total').textContent = `₹${finalTotal}`;
+
+        const discountRow = document.getElementById('discountRow');
+        if (this.couponApplied) {
+          discountRow.style.display = 'flex';
+          document.getElementById('discount').textContent = `-₹${discountAmount}`;
+        } else {
+          discountRow.style.display = 'none';
+        }
+
+        console.log("Cart Total:", this.getTotal());
+        console.log("Final Total:", this.getFinalTotal());
+      }
+    }
+
+    const cart = new Cart();
+
+    function showMessage(text, type) {
+      const messageDiv = document.getElementById('message');
+      messageDiv.className = `message ${type}`;
+      messageDiv.textContent = text;
+      messageDiv.style.display = 'block';
+
+      setTimeout(() => {
+        messageDiv.style.display = 'none';
+      }, 3000);
+    }
+
+    function addItem() {
+      const name = document.getElementById('itemName').value.trim();
+      const price = document.getElementById('itemPrice').value;
+      const quantity = document.getElementById('itemQuantity').value;
+
+      if (!name || !price || !quantity) {
+        showMessage('Please fill all fields', 'error');
+        return;
+      }
+
+      cart.addItem(name, price, quantity);
+      
+      document.getElementById('itemName').value = '';
+      document.getElementById('itemPrice').value = '';
+      document.getElementById('itemQuantity').value = '1';
+
+      showMessage(`${name} added to cart!`, 'success');
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById('couponCode').value.trim().toUpperCase();
+
+      if (cart.items.length === 0) {
+        showMessage('Add items to cart first!', 'error');
+        return;
+      }
+
+      if (cart.applyCoupon(code)) {
+        cart.displayCart();
+        showMessage(`Coupon ${code} applied! ${cart.couponApplied.discount}% discount`, 'success');
+      } else {
+        showMessage('Invalid coupon code! Use SAVE20 or DISC10', 'error');
+      }
+    }
+  </script>
+</body>
+</html>

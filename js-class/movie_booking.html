@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Ticket Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    h2 {
+      text-align: center;
+      color: #667eea;
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    input.valid {
+      border-color: green;
+    }
+    input.invalid {
+      border-color: red;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    #bookingDetails {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f0f7ff;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+      display: none;
+    }
+    #bookingDetails h3 {
+      color: #667eea;
+      margin-top: 0;
+    }
+    #bookingDetails p {
+      margin: 10px 0;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🎬 Movie Ticket Booking</h2>
+    
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+      <div class="error" id="nameError">Name must contain only alphabets</div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" id="email" placeholder="example@domain.com">
+      <div class="error" id="emailError">Invalid email format</div>
+    </div>
+
+    <div class="form-group">
+      <label for="seats">Number of Seats (1-10)</label>
+      <select id="seats">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+
+    <button onclick="bookTicket()">Book Ticket</button>
+
+    <div id="bookingDetails"></div>
+  </div>
+
+  <script>
+    const nameRegex = /^[A-Za-z\s]+$/;
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    function validateField(inputId, regex, errorId) {
+      const input = document.getElementById(inputId);
+      const error = document.getElementById(errorId);
+      const value = input.value.trim();
+
+      if (regex.test(value)) {
+        input.classList.remove('invalid');
+        input.classList.add('valid');
+        error.style.display = 'none';
+        return true;
+      } else {
+        input.classList.remove('valid');
+        input.classList.add('invalid');
+        error.style.display = 'block';
+        return false;
+      }
+    }
+
+    document.getElementById('name').addEventListener('input', function() {
+      validateField('name', nameRegex, 'nameError');
+    });
+
+    document.getElementById('email').addEventListener('input', function() {
+      validateField('email', emailRegex, 'emailError');
+    });
+
+    function bookTicket() {
+      const nameValid = validateField('name', nameRegex, 'nameError');
+      const emailValid = validateField('email', emailRegex, 'emailError');
+
+      if (nameValid && emailValid) {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const seats = document.getElementById('seats').value;
+
+        const booking = {
+          name: name,
+          email: email,
+          seats: parseInt(seats)
+        };
+
+        const detailsDiv = document.getElementById('bookingDetails');
+        detailsDiv.style.display = 'block';
+        detailsDiv.innerHTML = `
+          <h3>✅ Booking Confirmed!</h3>
+          <p><strong>Name:</strong> ${booking.name}</p>
+          <p><strong>Email:</strong> ${booking.email}</p>
+          <p><strong>Number of Seats:</strong> ${booking.seats}</p>
+          <p><strong>Total Amount:</strong> ₹${booking.seats * 200}</p>
+        `;
+
+        console.log("Booking Details:", booking);
+      } else {
+        alert('Please fix all errors before booking');
+      }
+    }
+  </script>
+</body>
+</html>
