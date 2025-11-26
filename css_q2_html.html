@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Height and Width Practice Layout</title>
+  <link rel="stylesheet" href="height-width.css">
+</head>
+<body>
+  <header>
+    <h1>Height and Width Practice Layout</h1>
+    <p>Demonstrating various CSS units and properties</p>
+  </header>
+
+  <main>
+    <section class="demo-section">
+      <h2>Different Units</h2>
+      
+      <div class="box-container">
+        <div class="box px-box">
+          <h3>Pixels (px)</h3>
+          <p>200px × 150px</p>
+          <p>Fixed size unit</p>
+        </div>
+
+        <div class="box percent-box">
+          <h3>Percentage (%)</h3>
+          <p>50% × 150px</p>
+          <p>Relative to parent</p>
+        </div>
+
+        <div class="box vh-box">
+          <h3>Viewport Height (vh)</h3>
+          <p>300px × 30vh</p>
+          <p>Relative to viewport</p>
+        </div>
+
+        <div class="box em-box">
+          <h3>Em Units</h3>
+          <p>15em × 12em</p>
+          <p>Relative to font size</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>Min/Max Properties</h2>
+      
+      <div class="box-container">
+        <div class="box min-height-box">
+          <h3>Min Height</h3>
+          <p>min-height: 200px</p>
+          <p>Content expands box</p>
+          <p>Extra content here to demonstrate how min-height works when content grows beyond the minimum specified height.</p>
+        </div>
+
+        <div class="box max-width-box">
+          <h3>Max Width</h3>
+          <p>max-width: 300px</p>
+          <p>Width limited to 300px regardless of available space.</p>
+        </div>
+
+        <div class="box overflow-box">
+          <h3>Overflow Property</h3>
+          <p>height: 150px</p>
+          <p>overflow: auto</p>
+          <p>This box has a lot of content that exceeds its fixed height. The overflow property is set to auto, which means scrollbars will appear when needed. This demonstrates how to handle content that doesn't fit within the specified dimensions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="flexbox-demo">
+      <h2>Flexbox Centering</h2>
+      <p>All boxes below are centered using Flexbox alignment</p>
+      
+      <div class="flex-container">
+        <div class="centered-box box1">
+          <p>Centered Box 1</p>
+        </div>
+        <div class="centered-box box2">
+          <p>Centered Box 2</p>
+        </div>
+        <div class="centered-box box3">
+          <p>Centered Box 3</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 CSS Height and Width Demo</p>
+  </footer>
+</body>
+</html>

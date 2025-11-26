@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced CSS Selectors</title>
+  <link rel="stylesheet" href="css-selectors.css">
+</head>
+<body>
+  <header>
+    <h1>Advanced CSS Selectors Demo</h1>
+    <p>Demonstrating attribute selectors, pseudo-classes, and pseudo-elements</p>
+  </header>
+
+  <main>
+    <section class="selectors-demo">
+      <h2>Attribute Selectors</h2>
+      <div class="items-grid">
+        <div class="item">
+          <input type="text" placeholder="Text Input">
+          <p>Input type="text"</p>
+        </div>
+
+        <div class="item">
+          <input type="email" placeholder="Email Input">
+          <p>Input type="email"</p>
+        </div>
+
+        <div class="item">
+          <a href="https://example.com">External Link</a>
+          <p>Link with href="https://"</p>
+        </div>
+
+        <div class="item">
+          <a href="#section">Internal Link</a>
+          <p>Link with href="#"</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pseudo-classes-demo">
+      <h2>Pseudo-Classes</h2>
+      
+      <h3>:hover, :focus Effects</h3>
+      <div class="buttons-container">
+        <button class="btn">Hover Over Me</button>
+        <input type="text" class="input-focus" placeholder="Click to focus">
+      </div>
+
+      <h3>:nth-child() Selector</h3>
+      <ul class="list">
+        <li>First Item</li>
+        <li>Second Item</li>
+        <li>Third Item</li>
+        <li>Fourth Item</li>
+        <li>Fifth Item</li>
+        <li>Sixth Item</li>
+        <li>Seventh Item</li>
+        <li>Eighth Item</li>
+      </ul>
+    </section>
+
+    <section class="pseudo-elements-demo">
+      <h2>Pseudo-Elements</h2>
+      
+      <div class="content-boxes">
+        <div class="box before-example">
+          Content with ::before
+        </div>
+
+        <div class="box after-example">
+          Content with ::after
+        </div>
+
+        <div class="box first-letter-example">
+          This paragraph demonstrates the ::first-letter pseudo-element. Notice how the first letter is styled differently from the rest of the text.
+        </div>
+
+        <div class="box first-line-example">
+          This paragraph shows the ::first-line pseudo-element in action. The first line has different styling compared to subsequent lines. Try resizing your browser to see how it adapts.
+        </div>
+      </div>
+    </section>
+
+    <section class="combinators-demo">
+      <h2>Combinators</h2>
+      
+      <div class="parent">
+        <p>Direct child paragraph (>)</p>
+        <div>
+          <p>Nested paragraph (descendant)</p>
+        </div>
+        <p>Another direct child paragraph</p>
+        <span>Sibling element (+)</span>
+        <p>Paragraph after span (~)</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 CSS Selectors Demo</p>
+  </footer>
+</body>
+</html>

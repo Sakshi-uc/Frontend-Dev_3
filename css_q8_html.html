@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Model Exploration</title>
+  <link rel="stylesheet" href="box-model.css">
+</head>
+<body>
+  <header>
+    <h1>CSS Box Model Exploration</h1>
+    <p>Understanding Content, Padding, Border, and Margin</p>
+  </header>
+
+  <main>
+    <section class="explanation">
+      <h2>The CSS Box Model</h2>
+      <p>The CSS box model is essentially a box that wraps around every HTML element. It consists of four parts: content, padding, border, and margin.</p>
+    </section>
+
+    <section class="visual-demo">
+      <h2>Visual Representation</h2>
+      
+      <div class="box-container">
+        <div class="demo-box content-box">
+          <div class="layer margin-layer">
+            <span class="label">Margin</span>
+            <div class="layer border-layer">
+              <span class="label">Border</span>
+              <div class="layer padding-layer">
+                <span class="label">Padding</span>
+                <div class="layer content-layer">
+                  <span class="label">Content</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sizing-demo">
+      <h2>box-sizing Property</h2>
+      
+      <div class="boxes-row">
+        <div class="sizing-box content-box-sizing">
+          <h3>content-box</h3>
+          <p>Width: 300px</p>
+          <p>Padding: 20px</p>
+          <p>Border: 5px</p>
+          <p class="highlight">Total width: 350px</p>
+          <p class="note">Default box-sizing. Width doesn't include padding and border.</p>
+        </div>
+
+        <div class="sizing-box border-box-sizing">
+          <h3>border-box</h3>
+          <p>Width: 300px</p>
+          <p>Padding: 20px</p>
+          <p>Border: 5px</p>
+          <p class="highlight">Total width: 300px</p>
+          <p class="note">Width includes padding and border.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="layers-demo">
+      <h2>Individual Layer Demonstration</h2>
+      
+      <div class="layers-grid">
+        <div class="layer-example">
+          <div class="example-box only-content">
+            Content only
+          </div>
+          <p class="description">Content area with no padding, border, or margin</p>
+        </div>
+
+        <div class="layer-example">
+          <div class="example-box with-padding">
+            Content + Padding
+          </div>
+          <p class="description">Content with padding (green area)</p>
+        </div>
+
+        <div class="layer-example">
+          <div class="example-box with-border">
+            Content + Border
+          </div>
+          <p class="description">Content with border (blue outline)</p>
+        </div>
+
+        <div class="layer-example">
+          <div class="example-box with-all">
+            All Layers
+          </div>
+          <p class="description">Content, padding, border, and margin combined</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Box Model Exploration</p>
+  </footer>
+</body>
+</html>

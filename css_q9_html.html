@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outline and Focus Styling Form</title>
+  <link rel="stylesheet" href="outline-focus.css">
+</head>
+<body>
+  <header>
+    <h1>Form with Custom Focus Styling</h1>
+    <p>Click on form elements to see custom outline and focus effects</p>
+  </header>
+
+  <main>
+    <form class="styled-form">
+      <h2>Contact Us</h2>
+      
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your.email@example.com">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="What is this about?">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Type your message here..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="priority">Priority Level</label>
+        <select id="priority" name="priority">
+          <option value="">Select priority</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+          <option value="urgent">Urgent</option>
+        </select>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label>
+          <input type="checkbox" name="newsletter">
+          Subscribe to our newsletter
+        </label>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label>
+          <input type="checkbox" name="terms" required>
+          I agree to the terms and conditions
+        </label>
+      </div>
+
+      <div class="form-actions">
+        <button type="reset" class="btn-reset">Reset</button>
+        <button type="submit" class="btn-submit">Submit</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Outline and Focus Styling Demo</p>
+  </footer>
+</body>
+</html>
