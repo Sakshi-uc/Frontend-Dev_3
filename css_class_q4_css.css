@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.selector-demo {
+  background: white;
+  padding: 40px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.selector-demo h2 {
+  color: #667eea;
+  font-size: 28px;
+  margin-bottom: 25px;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 10px;
+}
+
+p {
+  color: #555;
+  margin-bottom: 15px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.box {
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.primary-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.secondary-box {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.tertiary-box {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+#unique-element {
+  padding: 25px;
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(67, 233, 123, 0.3);
+}
+
+#special-box {
+  padding: 25px;
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  color: #333;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+  border: 4px solid #f5576c;
+}
+
+.links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.links-container a {
+  padding: 15px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+a[href^="https"] {
+  background: #4caf50;
+  color: white;
+}
+
+a[href^="#"] {
+  background: #2196f3;
+  color: white;
+}
+
+a[href$=".pdf"] {
+  background: #f44336;
+  color: white;
+}
+
+a[href$=".jpg"] {
+  background: #ff9800;
+  color: white;
+}
+
+.links-container a:hover {
+  transform: translateX(10px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.parent {
+  border: 3px solid #667eea;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.parent h3 {
+  color: #667eea;
+  margin-bottom: 15px;
+}
+
+.parent > p {
+  background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.parent .nested {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.parent .nested p {
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+  color: white;
+}
+
+.siblings-demo {
+  border: 3px solid #f093fb;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.siblings-demo h3 {
+  color: #f093fb;
+  margin-bottom: 15px;
+}
+
+.siblings-demo h3 + p {
+  background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.siblings-demo div ~ p {
+  background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.styled-list {
+  list-style: none;
+}
+
+.styled-list li {
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
+.styled-list li.important {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  border-left: 5px solid #ffeaa7;
+}
+
+footer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+}

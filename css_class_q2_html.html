@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltip Demonstration Page</title>
+  <link rel="stylesheet" href="tooltip.css">
+</head>
+<body>
+  <header>
+    <h1>CSS Tooltip Demonstration</h1>
+    <p>Hover over the elements below to see tooltips</p>
+  </header>
+
+  <main>
+    <section class="tooltip-section">
+      <h2>Icon Tooltips</h2>
+      <div class="icons-container">
+        <div class="tooltip-wrapper">
+          <span class="icon">🏠</span>
+          <div class="tooltip">Home - Navigate to homepage</div>
+        </div>
+
+        <div class="tooltip-wrapper">
+          <span class="icon">⚙️</span>
+          <div class="tooltip">Settings - Configure your preferences</div>
+        </div>
+
+        <div class="tooltip-wrapper">
+          <span class="icon">👤</span>
+          <div class="tooltip">Profile - View your profile</div>
+        </div>
+
+        <div class="tooltip-wrapper">
+          <span class="icon">📧</span>
+          <div class="tooltip">Messages - Check your inbox</div>
+        </div>
+
+        <div class="tooltip-wrapper">
+          <span class="icon">🔔</span>
+          <div class="tooltip">Notifications - View alerts</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tooltip-section">
+      <h2>Text Tooltips</h2>
+      <div class="text-container">
+        <p>Hover over the 
+          <span class="tooltip-wrapper inline">
+            <span class="highlight">highlighted words</span>
+            <span class="tooltip">This is a CSS-only tooltip!</span>
+          </span> 
+          to see tooltips appear above them.
+        </p>
+
+        <p>You can also hover over 
+          <span class="tooltip-wrapper inline">
+            <span class="highlight">technical terms</span>
+            <span class="tooltip">Tooltips help explain complex concepts</span>
+          </span> 
+          for more information.
+        </p>
+
+        <p>This is 
+          <span class="tooltip-wrapper inline">
+            <span class="highlight">pure CSS</span>
+            <span class="tooltip">No JavaScript required!</span>
+          </span> 
+          with smooth transitions.
+        </p>
+      </div>
+    </section>
+
+    <section class="tooltip-section">
+      <h2>Button Tooltips</h2>
+      <div class="buttons-container">
+        <div class="tooltip-wrapper">
+          <button class="btn">Save</button>
+          <div class="tooltip">Save your changes</div>
+        </div>
+
+        <div class="tooltip-wrapper">
+          <button class="btn">Delete</button>
+          <div class="tooltip">Permanently delete item</div>
+        </div>
+
+        <div class="tooltip-wrapper">
+          <button class="btn">Share</button>
+          <div class="tooltip">Share with others</div>
+        </div>
+
+        <div class="tooltip-wrapper">
+          <button class="btn">Download</button>
+          <div class="tooltip">Download to your device</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Tooltip Demonstration</p>
+  </footer>
+</body>
+</html>

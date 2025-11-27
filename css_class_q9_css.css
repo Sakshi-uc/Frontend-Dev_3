@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  color: white;
+  padding: 40px 20px;
+}
+
+header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+  font-size: 20px;
+  opacity: 0.95;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.effects-section {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+}
+
+.effect-box {
+  width: 220px;
+  height: 220px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: all 0.4s ease;
+}
+
+.effect-box h3 {
+  font-size: 28px;
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+.effect-box p {
+  font-size: 14px;
+  color: #666;
+}
+
+.box1:hover {
+  transform: scale(1.15);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+}
+
+.box1:hover h3,
+.box1:hover p {
+  color: white;
+}
+
+.box2:hover {
+  transform: translateY(-15px);
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  box-shadow: 0 20px 40px rgba(240, 147, 251, 0.5);
+}
+
+.box2:hover h3,
+.box2:hover p {
+  color: white;
+}
+
+.box3:hover {
+  transform: rotate(10deg) scale(1.1);
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0 12px 30px rgba(79, 172, 254, 0.5);
+}
+
+.box3:hover h3,
+.box3:hover p {
+  color: white;
+}
+
+.box4:hover {
+  transform: translateX(10px);
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  box-shadow: 0 12px 30px rgba(67, 233, 123, 0.5);
+  opacity: 0.95;
+}
+
+.box4:hover h3,
+.box4:hover p {
+  color: white;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  padding: 40px 20px;
+  font-size: 16px;
+}

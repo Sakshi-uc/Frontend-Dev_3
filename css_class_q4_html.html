@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Selectors Practice Page</title>
+  <link rel="stylesheet" href="css-selectors-practice.css">
+</head>
+<body>
+  <header>
+    <h1>CSS Selectors Practice</h1>
+    <p>Demonstrating element, class, ID, attribute, and combinator selectors</p>
+  </header>
+
+  <main>
+    <section class="selector-demo">
+      <h2>Element Selectors</h2>
+      <p>This is a paragraph styled with element selector.</p>
+      <p>All paragraphs in this section have the same base styling.</p>
+    </section>
+
+    <section class="selector-demo">
+      <h2>Class Selectors</h2>
+      <div class="box primary-box">Primary Box (class)</div>
+      <div class="box secondary-box">Secondary Box (class)</div>
+      <div class="box tertiary-box">Tertiary Box (class)</div>
+    </section>
+
+    <section class="selector-demo">
+      <h2>ID Selectors</h2>
+      <div id="unique-element">Unique Element with ID</div>
+      <div id="special-box">Special Box with Unique Styling</div>
+    </section>
+
+    <section class="selector-demo">
+      <h2>Attribute Selectors</h2>
+      <div class="links-container">
+        <a href="https://example.com" target="_blank">External Link</a>
+        <a href="#section">Internal Link</a>
+        <a href="document.pdf">PDF Download</a>
+        <a href="image.jpg">Image Link</a>
+      </div>
+    </section>
+
+    <section class="selector-demo">
+      <h2>Combinator Selectors</h2>
+      
+      <div class="parent">
+        <h3>Parent Container</h3>
+        <p>Direct child paragraph (child combinator >)</p>
+        <div class="nested">
+          <p>Nested paragraph (descendant combinator)</p>
+        </div>
+        <p>Another direct child paragraph</p>
+      </div>
+
+      <div class="siblings-demo">
+        <h3>Adjacent Sibling (+) and General Sibling (~)</h3>
+        <p>First paragraph</p>
+        <p>Second paragraph (adjacent sibling)</p>
+        <div>A div element</div>
+        <p>Third paragraph (general sibling)</p>
+        <p>Fourth paragraph (general sibling)</p>
+      </div>
+    </section>
+
+    <section class="selector-demo">
+      <h2>Mixed Selectors</h2>
+      <ul class="styled-list">
+        <li class="important">Important item with class</li>
+        <li>Regular item</li>
+        <li class="important">Another important item</li>
+        <li>Another regular item</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 CSS Selectors Practice</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pseudo-Classes Demonstration</title>
+  <link rel="stylesheet" href="pseudo-classes.css">
+</head>
+<body>
+  <header>
+    <h1>Pseudo-Classes Demonstration</h1>
+    <p>Hover, focus, and interact with elements below</p>
+  </header>
+
+  <main>
+    <section class="demo-section">
+      <h2>Link Examples</h2>
+      <div class="examples-row">
+        <div class="example-box">
+          <h3>:hover</h3>
+          <p>Hover over this link:</p>
+          <a href="#" class="hover-link">Hover Me</a>
+          <p class="description">Changes color and background on hover</p>
+        </div>
+
+        <div class="example-box">
+          <h3>:active</h3>
+          <p>Click and hold this link:</p>
+          <a href="#" class="active-link">Click Me</a>
+          <p class="description">Changes appearance while being clicked</p>
+        </div>
+
+        <div class="example-box">
+          <h3>:focus</h3>
+          <p>Tab to or click this link:</p>
+          <a href="#" class="focus-link">Focus Me</a>
+          <p class="description">Shows outline when focused</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>Button Examples</h2>
+      <div class="buttons-row">
+        <button class="btn-hover">Hover Effect</button>
+        <button class="btn-active">Active Effect</button>
+        <button class="btn-focus">Focus Effect</button>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>List with :nth-child()</h2>
+      <ul class="styled-list">
+        <li>First Item - :nth-child(1)</li>
+        <li>Second Item - :nth-child(2)</li>
+        <li>Third Item - :nth-child(3)</li>
+        <li>Fourth Item - :nth-child(4)</li>
+        <li>Fifth Item - :nth-child(5)</li>
+        <li>Sixth Item - :nth-child(6)</li>
+        <li>Seventh Item - :nth-child(7)</li>
+        <li>Eighth Item - :nth-child(8)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Pseudo-Classes Demo</p>
+  </footer>
+</body>
+</html>

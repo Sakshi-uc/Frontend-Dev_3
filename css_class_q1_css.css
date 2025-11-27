@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.demo-section {
+  background: white;
+  padding: 40px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.demo-section h2 {
+  color: #667eea;
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.examples-row {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.example-box {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+  min-width: 250px;
+}
+
+.example-box h3 {
+  color: #667eea;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.example-box p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.example-box a {
+  display: inline-block;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.hover-link {
+  background: #667eea;
+  color: white;
+}
+
+.hover-link:hover {
+  background: #764ba2;
+  color: #ffeaa7;
+  transform: scale(1.1);
+}
+
+.active-link {
+  background: #f093fb;
+  color: white;
+}
+
+.active-link:active {
+  background: #f5576c;
+  transform: scale(0.95);
+}
+
+.focus-link {
+  background: #4facfe;
+  color: white;
+}
+
+.focus-link:focus {
+  outline: 4px solid #00f2fe;
+  outline-offset: 4px;
+  background: #00f2fe;
+}
+
+.description {
+  font-size: 14px;
+  font-style: italic;
+  color: #777;
+  margin-top: 15px;
+}
+
+.buttons-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 15px 35px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-hover {
+  background: #43e97b;
+  color: white;
+}
+
+.btn-hover:hover {
+  background: #38f9d7;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(67, 233, 123, 0.4);
+}
+
+.btn-active {
+  background: #fa709a;
+  color: white;
+}
+
+.btn-active:active {
+  background: #fee140;
+  color: #333;
+  transform: translateY(2px);
+}
+
+.btn-focus {
+  background: #667eea;
+  color: white;
+}
+
+.btn-focus:focus {
+  outline: 4px dashed #764ba2;
+  outline-offset: 4px;
+}
+
+.styled-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.styled-list li {
+  flex: 1 1 calc(50% - 15px);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.styled-list li:nth-child(odd) {
+  background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+  color: #333;
+}
+
+.styled-list li:nth-child(even) {
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+  color: white;
+}
+
+.styled-list li:nth-child(3n) {
+  background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+  color: white;
+}
+
+.styled-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+footer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+}

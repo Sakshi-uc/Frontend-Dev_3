@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box-Sizing Comparison</title>
+  <link rel="stylesheet" href="box-sizing-comparison.css">
+</head>
+<body>
+  <header>
+    <h1>Box-Sizing Comparison</h1>
+    <p>Understanding content-box vs border-box</p>
+  </header>
+
+  <main>
+    <section class="comparison-container">
+      <div class="box-demo content-box-demo">
+        <h2>content-box (default)</h2>
+        <div class="info">
+          <p><strong>Width:</strong> 400px</p>
+          <p><strong>Padding:</strong> 30px</p>
+          <p><strong>Border:</strong> 5px</p>
+          <p class="total"><strong>Total Width:</strong> 470px</p>
+        </div>
+        <p class="explanation">Width does NOT include padding and border. The total width is calculated as: width + padding-left + padding-right + border-left + border-right.</p>
+      </div>
+
+      <div class="box-demo border-box-demo">
+        <h2>border-box</h2>
+        <div class="info">
+          <p><strong>Width:</strong> 400px</p>
+          <p><strong>Padding:</strong> 30px</p>
+          <p><strong>Border:</strong> 5px</p>
+          <p class="total"><strong>Total Width:</strong> 400px</p>
+        </div>
+        <p class="explanation">Width INCLUDES padding and border. The content area shrinks to accommodate padding and border within the specified width.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Box-Sizing Comparison</p>
+  </footer>
+</body>
+</html>
